@@ -1,32 +1,39 @@
 package com.vaibhavCodes.uberReviewService.models;
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.Date;
 
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
 @Entity
 @Table(name="booking_review")
 public class Review {
     @Id             // This makes the Id Property as the Primary Key of our table.
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Auto Increment
-    Long id;
+   private Long id;
 
     @Column(nullable = false)
-    String content;
+   private String content;
 
-    double rating;
+   private double rating;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    Date createdAt;
+    private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     @Column(nullable = false)
-    Date updatedAt;
+    private Date updatedAt;
 }
 
 //Allow Spring to do this
